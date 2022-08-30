@@ -25,7 +25,7 @@ public class CommandProcessor {
         }
     }
 
-    public void start(String fileName) throws IOException {
+    public void start(String fileName) throws IOException, InvalidInputException {
         final File file = new File(fileName);
         final BufferedReader reader;
         try {

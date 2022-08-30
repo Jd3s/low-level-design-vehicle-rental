@@ -44,7 +44,7 @@ public class VehicleRentalService {
         Branch branch = branches.get(branchName);
 
         if(branch == null)
-            throw new NoValidBranchException();
+            throw new NoValidBranchException(OutputConstants.NO_VALID_BRANCH);
 
       return  branch.getVehicleInventory().addVehicle(vehicle);
     }

@@ -41,15 +41,15 @@ public class AddVehicleExecutor extends CommandExecutor{
 
     public Vehicle parseInput(Command command) {
 
+        Vehicle vehicle = null;
         try{
             String vehicleType = command.getParameters().get(1);
             String vehicleId = command.getParameters().get(2);
             BigDecimal price = new BigDecimal(command.getParameters().get(3));
-            Vehicle vehicle = new Vehicle(vehicleType, vehicleId, price);
-            return vehicle;
+            vehicle = new Vehicle(vehicleType, vehicleId, price);
         } catch (Exception e) {
-            throw new InvalidInputException("");
+            printOutput(e.getMessage());
         }
-
+        return vehicle;
     }
 }

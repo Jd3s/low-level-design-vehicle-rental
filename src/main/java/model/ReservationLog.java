@@ -9,6 +9,11 @@ import java.util.*;
 public class ReservationLog {
     private Map<String, TreeSet<Integer>[]> reservationLogs;
 
+/* can be changed to a balanced bst based implementation. One for start time and one for end time.
+This would give us O(2 * logn) lookup and O(2 * logn) insertions.
+*/
+
+
     public boolean makeReservation(Vehicle vehicle, Range range) {
         Integer startTime = range.getStartTime();
         Integer endTime = range.getEndTime();

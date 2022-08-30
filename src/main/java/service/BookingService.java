@@ -10,6 +10,8 @@ import util.VehiclePriceComparator;
 import java.math.BigDecimal;
 import java.util.*;
 
+import static constants.OutputConstants.BOOKING_FAILED;
+
 public class BookingService {
    private BookingStrategy bookingStrategy;
    private PricingStrategy pricingStrategy;
@@ -22,7 +24,7 @@ public class BookingService {
     public BigDecimal book(Branch branch, String vehicleType, Range duration) throws RuntimeException {
        Vehicle vehicle =  bookingStrategy.getVehicleToBook(branch,vehicleType,duration);
        if(vehicle == null)
-           throw new NoAvailableVehicleException();
+           throw new NoAvailableVehicleException("");
 
      BigDecimal price =  pricingStrategy.getPrice(branch, vehicle, duration);
      Boolean isBooked = bookingStrategy.makeBooking(branch,vehicle,duration);
@@ -31,7 +33,7 @@ public class BookingService {
      if(isBooked)
          return price;
      else
-         throw new BookingFailedException();
+         throw new BookingFailedException(BOOKING_FAILED);
     }
 
     public List<Vehicle> displayAvailableVehicles(Branch branch, Range duration){

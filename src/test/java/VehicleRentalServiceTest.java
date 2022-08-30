@@ -12,6 +12,7 @@ import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
 
+// please make sure Line Seperators are set to LF(Mac/Linux)
 
 public class VehicleRentalServiceTest {
 

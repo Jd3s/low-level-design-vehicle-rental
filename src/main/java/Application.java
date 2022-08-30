@@ -1,13 +1,6 @@
 import commands.CommandExecutorFactory;
 import commands.CommandProcessor;
-import service.BookingService;
 import service.VehicleRentalService;
-import strategy.booking.BookingStrategy;
-import strategy.booking.DefaultBookingStrategy;
-import strategy.pricing.DefaultPricingStrategy;
-import strategy.pricing.DynamicPricingStrategy;
-import strategy.pricing.PricingStrategy;
-import util.FileReaderUtil;
 
 import java.io.IOException;
 
@@ -20,7 +13,7 @@ public class Application {
 
         // default input
         if(args.length != 1)
-            fileName = "input.txt";
+            fileName = "src/main/resources/input.txt";
         else
             fileName = args[0];
 
